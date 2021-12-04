@@ -6,13 +6,20 @@ const Form = ({addHandler}) => {
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
-        <TextInput placeholder="Buraya Yazınız" onChangeText={setAddtodo} />
+        <TextInput
+          placeholder="Buraya Yazınız"
+          value={addtodo}
+          onChangeText={val => {
+            setAddtodo(val);
+          }}
+        />
       </View>
       <Button
         title="Yeni yapılacak iş ekle"
         color="plum"
         onPress={() => {
           addHandler(addtodo);
+          setAddtodo('');
         }}
       />
     </View>
